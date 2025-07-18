@@ -14,7 +14,7 @@ Ethliquid 为以太坊用户提供一站式质押（Staking）和 DeFi 服务，
 
 ## 技术栈
 - Next.js 13+（App Router）
-- React 19
+- React 18+
 - TypeScript
 - Tailwind CSS & tailwindcss-animate
 - Framer Motion（动画）

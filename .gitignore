@@ -38,3 +38,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# foundry (solidity)
+/out/
+/cache/
+/lib/forge-std/
+
+# forge coverage
+/coverage/
