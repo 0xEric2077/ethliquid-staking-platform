@@ -1,6 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useAccount, useBalance, useConnectorClient } from 'wagmi'
+import { useMemo, useState } from 'react'
+import { BrowserProvider, JsonRpcSigner, Contract, parseEther } from 'ethers'
+import { STAKING_ABI, STAKING_ADDRESS } from '../../lib/contract'
 import Image from 'next/image'
 import Header from '../../components/layout/Header'
 import Background from '../../components/ui/Background'
@@ -8,6 +11,35 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function StakePage() {
   const [activeTab, setActiveTab] = useState('stake')
+  const [stakeAmount, setStakeAmount] = useState('')
+  const [loading, setLoading] = useState(false)
+  const { address, isConnected } = useAccount()
+  const { data: client } = useConnectorClient()
+  // ethers v6 signer
+  const signer = useMemo(() => {
+    if (!client) return undefined
+    const provider = new BrowserProvider(client.transport)
+    return new JsonRpcSigner(provider, client.account.address)
+  }, [client])
+  const { data: balanceData, refetch: refetchBalance } = useBalance({ address })
+
+  // 质押处理函数
+  const handleStake = async () => {
+    if (!signer || !stakeAmount) return
+    setLoading(true)
+    try {
+      const contract = new Contract(STAKING_ADDRESS, STAKING_ABI, signer)
+      const tx = await contract.deposit({ value: parseEther(stakeAmount) })
+      await tx.wait()
+      refetchBalance()
+      alert('质押成功')
+      setStakeAmount('')
+    } catch (err: any) {
+      alert('质押失败: ' + (err.message || err))
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
@@ -35,7 +67,10 @@ export default function StakePage() {
         {/* Stake Interface */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold mb-6">Get Liquid ETH</h2>
-          
+          {/* 显示余额 */}
+          <div className="text-right text-sm text-gray-500 mb-2">
+            {isConnected ? `余额: ${balanceData?.formatted ?? '0.00'} ETH` : '请连接钱包'}
+          </div>
           {/* Stake/Unstake Tabs */}
           <div className="flex mb-6 bg-gray-100 rounded-full p-1">
             <button 
@@ -61,8 +96,13 @@ export default function StakePage() {
                 <span>ETH</span>
                 <input 
                   type="number" 
-                  className="ml-auto text-right focus:outline-none" 
+                  className="ml-auto text-right focus:outline-none"
                   placeholder="1.00"
+                  value={stakeAmount}
+                  onChange={e => setStakeAmount(e.target.value)}
+                  min="0"
+                  step="any"
+                  disabled={!isConnected || loading}
                 />
               </div>
             </div>
@@ -72,7 +112,7 @@ export default function StakePage() {
               <div className="flex items-center gap-2 p-4 border rounded-xl">
                 <Image src="/images/icon_lsteth.svg" alt="LSTETH" width={24} height={24} />
                 <span>LSTETH</span>
-                <div className="ml-auto">1.00000</div>
+                <div className="ml-auto">{stakeAmount ? Number(stakeAmount).toFixed(5) : '0.00000'}</div>
               </div>
             </div>
 
@@ -82,6 +122,15 @@ export default function StakePage() {
 
             {/* 钱包连接按钮 */}
             <ConnectButton showBalance={false} accountStatus="address" />
+
+            {/* 质押按钮 */}
+            <button
+              className="w-full bg-black text-white rounded-xl py-3 mt-2 disabled:opacity-50"
+              onClick={handleStake}
+              disabled={!isConnected || !stakeAmount || loading}
+            >
+              {loading ? '质押中...' : '质押'}
+            </button>
           </div>
         </div>
       </main>
