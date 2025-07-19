@@ -145,13 +145,13 @@ export default function StakePage() {
           {/* Tabs */}
           <div className="flex mb-6 bg-gray-100 rounded-full p-1">
             <button
-              className={`flex-1 py-2 px-4 rounded-full ${activeTab === 'stake' ? 'bg-black text-white' : ''}`}
+              className={`flex-1 py-2 px-4 rounded-full transition-colors ${activeTab === 'stake' ? 'bg-blue-600 text-white shadow-sm' : 'hover:bg-gray-200'}`}
               onClick={() => setActiveTab('stake')}
             >
               Stake
             </button>
             <button
-              className={`flex-1 py-2 px-4 rounded-full ${activeTab === 'unstake' ? 'bg-black text-white' : ''}`}
+              className={`flex-1 py-2 px-4 rounded-full transition-colors ${activeTab === 'unstake' ? 'bg-blue-600 text-white shadow-sm' : 'hover:bg-gray-200'}`}
               onClick={() => setActiveTab('unstake')}
             >
               Unstake
@@ -191,7 +191,7 @@ export default function StakePage() {
                   1 ETH ≈ 1.00000 LSTETH
                 </div>
                 <button
-                  className="w-full bg-black text-white rounded-xl py-3 mt-2 disabled:opacity-50"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 mt-2 disabled:opacity-50 transition-colors font-semibold"
                   onClick={handleStake}
                   disabled={!isConnected || !stakeAmount || loading}
                 >
@@ -229,7 +229,7 @@ export default function StakePage() {
                   1 LSTETH ≈ 1.00000 ETH
                 </div>
                 <button
-                  className="w-full bg-black text-white rounded-xl py-3 mt-2 disabled:opacity-50"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 mt-2 disabled:opacity-50 transition-colors font-semibold"
                   onClick={handleUnstake}
                   disabled={!isConnected || !unstakeAmount || loading}
                 >

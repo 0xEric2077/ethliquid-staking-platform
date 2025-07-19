@@ -22,6 +22,8 @@ export default function MyAccountPage() {
   const { data: client } = useConnectorClient()
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(false)
+  const [ethPrice, setEthPrice] = useState<number>(0)
+  const [priceLoading, setPriceLoading] = useState(true)
 
   // ethers v6 signer
   const signer = useMemo(() => {
@@ -49,9 +51,33 @@ export default function MyAccountPage() {
   })
   const totalStaked = totalStakedRaw ? formatEther(BigInt(totalStakedRaw.toString())) : '0.0000'
 
-  // Calculate TVL (assuming 1 ETH = $2000 for demo)
-  const ethPrice = 2000
+  // Fetch real-time ETH price
+  const fetchEthPrice = async () => {
+    try {
+      setPriceLoading(true)
+      const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+      const data = await response.json()
+      setEthPrice(data.ethereum.usd)
+    } catch (error) {
+      console.error('Error fetching ETH price:', error)
+      // Fallback to a default price if API fails
+      setEthPrice(2000)
+    } finally {
+      setPriceLoading(false)
+    }
+  }
+
+  // Calculate TVL with real-time price
   const tvl = (parseFloat(lstethBalance) * ethPrice).toFixed(2)
+
+  // Fetch ETH price on component mount
+  useEffect(() => {
+    fetchEthPrice()
+    
+    // Refresh price every 5 minutes
+    const interval = setInterval(fetchEthPrice, 5 * 60 * 1000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Fetch transaction history
   const fetchTransactionHistory = async () => {
@@ -176,6 +202,26 @@ export default function MyAccountPage() {
       <Background />
       <Header />
       <main className="max-w-3xl mx-auto px-4 pt-32 pb-20">
+        {/* Price Display */}
+        <div className="bg-white rounded-2xl p-6 mb-8 shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold">ETH Price</h2>
+            <button
+              onClick={fetchEthPrice}
+              disabled={priceLoading}
+              className="text-sm text-gray-600 hover:text-black disabled:opacity-50"
+            >
+              {priceLoading ? 'Updating...' : 'Refresh'}
+            </button>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold mb-2">
+              {priceLoading ? 'Loading...' : `$${ethPrice.toLocaleString()}`}
+            </div>
+            <div className="text-sm text-gray-600 font-[500]">Current ETH Price</div>
+          </div>
+        </div>
+
         {/* Stats Display */}
         <div className="bg-white rounded-2xl p-6 mb-8 shadow-sm">
           <div className="grid grid-cols-3 gap-4">
