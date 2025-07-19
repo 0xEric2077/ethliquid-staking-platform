@@ -44,5 +44,9 @@ next-env.d.ts
 /cache/
 /lib/forge-std/
 
+# forge
+broadcast/
+deployments/
+
 # forge coverage
 /coverage/
