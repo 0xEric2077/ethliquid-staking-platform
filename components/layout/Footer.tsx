@@ -10,9 +10,22 @@ export default function Footer() {
   ]
 
   const footerLinks = {
-    About: ['Introduction', 'LSTETH', 'Fees', 'STAKE'],
-    Validators: ['Delegation Strategy'],
-    Users: ['Liquid staking', 'Staking APY', 'Risks', 'FAQ', 'Contact us']
+    About: [
+      { name: 'Introduction', href: '/docs#Introduction' },
+      { name: 'LSTETH', href: '/docs#LSTETH' },
+      { name: 'Fees', href: '/docs#Fees' },
+      { name: 'STAKE', href: '/stake' }
+    ],
+    Validators: [
+      { name: 'Delegation Strategy', href: '/docs#Delegation Strategy' }
+    ],
+    Users: [
+      { name: 'Liquid staking', href: '/docs#Liquid staking' },
+      { name: 'Staking APY', href: '/docs#Staking APY' },
+      { name: 'Risks', href: '/docs#Risks' },
+      { name: 'FAQ', href: '/docs#FAQ' },
+      { name: 'Contact us', href: '/docs#Contact us' }
+    ]
   }
 
   return (
@@ -45,9 +58,11 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <button className="bg-[#00FFA9] text-black px-8 py-3 rounded-full mt-8 hover:opacity-90 transition-opacity">
-              Stake ETH
-            </button>
+            <Link href="/stake">
+              <button className="bg-[#00FFA9] text-black px-8 py-3 rounded-full mt-8 hover:opacity-90 transition-opacity">
+                Stake ETH
+              </button>
+            </Link>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -55,12 +70,12 @@ export default function Footer() {
               <h3 className="text-xl font-medium mb-4">{title}</h3>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.name}>
                     <Link 
-                      href="#" 
+                      href={link.href} 
                       className="text-gray-600 hover:text-gray-900 transition-colors"
                     >
-                      {link}
+                      {link.name}
                     </Link>
                   </li>
                 ))}
