@@ -81,7 +81,7 @@ export default function Footer() {
             />
           </div>
           <div className="text-sm text-gray-600">
-            ©2024 Ethliquid · All Rights Reserved
+            ©2025 Ethliquid · All Rights Reserved
           </div>
         </div>
       </div>

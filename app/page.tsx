@@ -231,12 +231,7 @@ export default function Home() {
               {/* High APY Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_highapy.svg" 
-                    alt="High APY Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <ApyIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">HIGH APY</h3>
@@ -251,12 +246,7 @@ export default function Home() {
               {/* Low Fee Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_fee.svg" 
-                    alt="Low Fee Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <FeeIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">LOW FEE</h3>
@@ -271,12 +261,7 @@ export default function Home() {
               {/* DeFi Ecosystem Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_defi.svg" 
-                    alt="DeFi Ecosystem Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <EcosystemIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">DEFI ECOSYSTEM</h3>

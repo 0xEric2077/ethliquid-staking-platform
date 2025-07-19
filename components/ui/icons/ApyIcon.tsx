@@ -1,48 +1,26 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function ApyIcon() {
+interface ApyIconProps {
+  className?: string;
+}
+
+export default function ApyIcon({ className = '' }: ApyIconProps) {
   return (
     <motion.div
-      className="relative w-[320px] h-[320px] flex items-center justify-center"
-      initial="initial"
-      animate="animate"
+      className={className}
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
-      <motion.div
-        className="absolute w-64 h-64 bg-gradient-to-tr from-[#4C6FFF] to-[#55ACEE] rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute w-56 h-56 bg-gradient-to-tr from-[#4C6FFF] to-[#55ACEE] rounded-full"
-        animate={{
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="relative text-white text-6xl font-bold flex items-center gap-1"
-        animate={{
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+      <svg
+        width="100%" height="100%" viewBox="0 0 344.87 344.88" fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <span>8.8</span>
-        <span className="text-4xl">%</span>
-      </motion.div>
+        <use href="/images/icon_highapy.svg#_图层_2" />
+      </svg>
     </motion.div>
   )
 } 

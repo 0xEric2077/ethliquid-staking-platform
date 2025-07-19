@@ -1,55 +1,26 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function FeeIcon() {
+interface FeeIconProps {
+  className?: string;
+}
+
+export default function FeeIcon({ className = '' }: FeeIconProps) {
   return (
     <motion.div
-      className="relative w-[320px] h-[320px] flex items-center justify-center"
-      initial="initial"
-      animate="animate"
+      className={className}
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
-      {/* 背景装饰圆环 */}
-      <motion.div
-        className="absolute w-64 h-64 border-4 border-[#00FFA9] rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 360],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-
-      {/* 主要内容容器 */}
-      <motion.div
-        className="relative w-56 h-56 bg-gradient-to-br from-[#00FFA9] to-[#00CC87] rounded-2xl flex items-center justify-center"
-        animate={{
-          rotate: [0, 360],
-          scale: [1, 0.95, 1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "linear"
-        }}
+      <svg
+        width="100%" height="100%" viewBox="0 0 344.87 344.88" fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        {/* 数字显示 */}
-        <motion.div
-          className="text-white text-6xl font-bold flex items-center gap-1"
-          animate={{
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <span>3.0</span>
-          <span className="text-4xl">%</span>
-        </motion.div>
-      </motion.div>
+        <use href="/images/icon_fee.svg#_图层_2" />
+      </svg>
     </motion.div>
   )
 } 
