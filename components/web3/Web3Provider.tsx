@@ -20,7 +20,7 @@ const anvil = {
 const config = getDefaultConfig({
   appName: 'Ethliquid',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [mainnet, anvil], // 加入 anvil
+  chains: [mainnet, anvil], // Add anvil
   ssr: true,
 });
 const queryClient = new QueryClient();

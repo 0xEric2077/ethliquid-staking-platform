@@ -1,7 +1,7 @@
 import LstETHAbi from '../out/LstETH.sol/LstETH.json'
 import StakingAbi from '../out/Staking.sol/Staking.json'
 
-// 网络配置
+// Network configuration
 const NETWORKS = {
   localhost: {
     chainId: 31337,
@@ -23,13 +23,13 @@ const NETWORKS = {
   },
 } as const
 
-// 获取当前网络配置
+// Get current network configuration
 function getNetworkConfig(chainId?: number) {
-  const targetChainId = chainId || 31337 // 默认本地网络
+  const targetChainId = chainId || 31337 // Default localhost network
   return Object.values(NETWORKS).find(network => network.chainId === targetChainId) || NETWORKS.localhost
 }
 
-// 导出网络配置获取函数
+// Export network configuration getter function
 export const getContractAddresses = (chainId?: number) => {
   const config = getNetworkConfig(chainId)
   return {
@@ -38,7 +38,7 @@ export const getContractAddresses = (chainId?: number) => {
   }
 }
 
-// 向后兼容的默认导出（使用本地网络）
+// Backward compatible default export (using localhost network)
 const defaultConfig = getNetworkConfig()
 export const LSTETH_ADDRESS = defaultConfig.lstETH
 export const STAKING_ADDRESS = defaultConfig.staking

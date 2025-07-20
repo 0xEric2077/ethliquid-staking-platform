@@ -1,4 +1,4 @@
-// 通用工具函数，可根据需要将更多工具函数拆分到 lib/hooks、lib/api 等子目录
+// General utility functions, can be split into lib/hooks, lib/api, and other subdirectories as needed
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 

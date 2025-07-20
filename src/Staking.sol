@@ -14,14 +14,14 @@ contract Staking is ReentrancyGuard {
         lstETH = ILstETH(_lstETH);
     }
 
-    // 用户存入ETH，铸造等量lstETH
+    // User deposits ETH and mints equivalent lstETH
     function deposit() external payable nonReentrant {
         require(msg.value > 0, "Zero amount");
         lstETH.mint(msg.sender, msg.value);
         emit Deposit(msg.sender, msg.value);
     }
 
-    // 用户销毁lstETH，赎回等量ETH
+    // User burns lstETH and redeems equivalent ETH
     function withdraw(uint256 amount) external nonReentrant {
         require(amount > 0, "Zero amount");
         lstETH.burn(msg.sender, amount);
@@ -30,7 +30,7 @@ contract Staking is ReentrancyGuard {
         emit Withdraw(msg.sender, amount);
     }
 
-    // 查询合约总质押ETH
+    // Query total staked ETH in the contract
     function totalStaked() external view returns (uint256) {
         return address(this).balance;
     }

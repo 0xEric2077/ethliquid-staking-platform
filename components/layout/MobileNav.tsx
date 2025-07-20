@@ -15,7 +15,7 @@ const MobileNav = () => {
         STAKE ETH
       </button>
 
-      {/* 汉堡菜单按钮 */}
+      {/* Hamburger menu button */}
       <button
         className="p-2 relative z-20"
         onClick={() => setIsOpen(!isOpen)}
@@ -32,7 +32,7 @@ const MobileNav = () => {
         }`}></div>
       </button>
 
-      {/* 移动端菜单 */}
+      {/* Mobile menu */}
       <div
         className={`fixed inset-0 bg-white transition-all duration-300 ease-in-out ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'

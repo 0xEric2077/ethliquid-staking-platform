@@ -13,13 +13,13 @@
   }
 }
 
-/* 添加必要的基础样式 */
+/* Add necessary base styles */
 html,
 body {
   @apply antialiased;
 }
 
-/* 添加 3D 变换支持 */
+/* Add 3D transform support */
 .preserve-3d {
   transform-style: preserve-3d;
 }
@@ -28,16 +28,18 @@ body {
   backface-visibility: hidden;
 }
 
-/* 添加以下 CSS 规则 */
+/* Add the following CSS rules */
 .font-bold {
-  font-weight: 600 !important; /* 将 700 改为 600 */
+  font-weight: 600 !important;
+    /* Changed from 700 to 600 */
 }
 
 .font-semibold {
-  font-weight: 500 !important; /* 将 600 改为 500 */
+  font-weight: 500 !important;
+    /* Changed from 600 to 500 */
 }
 
-/* 添加网格背景样式 */
+/* Add grid background styles */
 .grid-background {
   background-image: 
     linear-gradient(to top, #fff1eb 0%, #ace0f9 100%),
@@ -47,7 +49,7 @@ body {
   background-position: 0 0, 0 0, 0 0;
 }
 
-/* 在文件顶部添加字体声明 */
+/* Add font declaration at the top of the file */
 @font-face {
   font-family: 'Montserrat Variable';
   font-style: normal;

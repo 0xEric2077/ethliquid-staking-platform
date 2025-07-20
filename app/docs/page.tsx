@@ -286,7 +286,7 @@ export default function DocsPage() {
       <Background />
       <Header />
       <div className="pt-20">
-        {/* Search Bar - 移除背景色，修改边框样式 */}
+        {/* Search Bar - Remove background color, modify border style */}
         <div className="border-b border-gray-200/50">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex justify-end">

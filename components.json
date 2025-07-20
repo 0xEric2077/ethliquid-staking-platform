@@ -1,4 +1,4 @@
-// 该文件为 shadcn/ui 组件库的配置文件，用于定制样式、路径别名和集成 Tailwind CSS 等。
+// This file is the configuration file for the shadcn/ui component library, used for customizing styles, path aliases, and integrating Tailwind CSS, etc.
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",

@@ -7,7 +7,7 @@ import { LSTETH_ABI, LSTETH_ADDRESS, STAKING_ABI, STAKING_ADDRESS } from '../../
 import Image from 'next/image'
 import Header from '../../components/layout/Header'
 import Background from '../../components/ui/Background'
-// import { ConnectButton } from '@rainbow-me/rainbowkit' // 已移除
+// import { ConnectButton } from '@rainbow-me/rainbowkit' // Removed
 import { useReadContract } from 'wagmi'
 
 export default function StakePage() {
@@ -35,7 +35,7 @@ export default function StakePage() {
   })
   const totalStaked = totalStakedRaw ? formatEther(BigInt(totalStakedRaw.toString())) : '0.0000'
 
-  // LSTETH 余额
+  // LSTETH balance
   const { data: lstethRaw, refetch: refetchLsteth } = useReadContract({
     address: LSTETH_ADDRESS,
     abi: LSTETH_ABI,

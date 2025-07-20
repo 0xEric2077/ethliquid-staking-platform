@@ -3,7 +3,7 @@
 import styles from './NewCubeAnimation.module.css'
 
 export default function NewCubeAnimation() {
-  // 生成27个小立方体
+  // Generate 27 small cubes
   const cubes = Array.from({ length: 27 }, (_, i) => i + 1)
   
   return (
