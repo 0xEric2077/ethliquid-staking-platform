@@ -1,4 +1,4 @@
-/* 基础设置 */
+/* Basic settings */
 .container {
   width: 60px;
   height: 60px;
@@ -7,7 +7,7 @@
   perspective: 6000px;
 }
 
-/* 立方体基础样式 */
+/* Basic cube styles */
 .cube {
   position: absolute;
   height: 100%;
@@ -17,7 +17,7 @@
   will-change: transform;
 }
 
-/* 立方体面的基础样式 */
+/* Basic styles for cube faces */
 .cube div {
   position: absolute;
   width: 100%;
@@ -40,7 +40,7 @@
   background-color: rgba(115, 181, 246, 0.95); /* #5BBBE5 */
 }
 
-/* 所有立方体的初始位置 */
+/* Initial positions for all cubes */
 .cube1  { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(-59px); }
 .cube2  { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(59px)  translateZ(-59px); }
 .cube3  { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(59px)  translateZ(-59px); }
@@ -50,7 +50,7 @@
 .cube7  { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(59px); }
 .cube8  { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(59px)  translateZ(59px); }
 .cube9  { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(59px)  translateZ(59px); }
-/* 中层 */
+/* Middle layer */
 .cube10 { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(0)     translateZ(-59px); }
 .cube11 { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(0)     translateZ(-59px); }
 .cube12 { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(0)     translateZ(-59px); }
@@ -60,7 +60,7 @@
 .cube16 { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(0)     translateZ(59px); }
 .cube17 { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(0)     translateZ(59px); }
 .cube18 { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(0)     translateZ(59px); }
-/* 底层 */
+/* Bottom layer */
 .cube19 { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(-59px) translateZ(-59px); }
 .cube20 { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(-59px) translateZ(-59px); }
 .cube21 { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(-59px) translateZ(-59px); }
@@ -71,7 +71,7 @@
 .cube26 { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(-59px) translateZ(59px); }
 .cube27 { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px) translateY(-59px) translateZ(59px); }
 
-/* 动画 */
+/* Animations */
 .cube1 { animation: cube1Animation  6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
 .cube2 { animation: cube2Animation  6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
 .cube3 { animation: cube3Animation  6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
@@ -100,7 +100,7 @@
 .cube26 { animation: cube26Animation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
 .cube27 { animation: cube27Animation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
 
-/* 动画关键帧 - 第一组（1-9） */
+/* Animation keyframes - First group (1-9) */
 @keyframes cube1Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(-120px); }
@@ -111,7 +111,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(-59px); }
 }
 
-/* 第二组动画关键帧（2-9） */
+/* Second group animation keyframes (2-9) */
 @keyframes cube2Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(59px)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(59px)  translateZ(-120px); }
@@ -142,7 +142,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(59px)  translateZ(0); }
 }
 
-/* 中间层动画（10-18） */
+/* Middle layer animations (10-18) */
 @keyframes cube10Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(0)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(0)  translateZ(-120px); }
@@ -153,7 +153,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(0)  translateZ(-59px); }
 }
 
-/* 底层动画（19-27） */
+/* Bottom layer animations (19-27) */
 @keyframes cube19Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(-59px)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(-59px)  translateZ(-120px); }
@@ -164,7 +164,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(59px)  translateY(-59px)  translateZ(-59px); }
 }
 
-/* 中间层动画（11-18） */
+/* Middle layer animations (11-18) */
 @keyframes cube11Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(0)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(0)  translateZ(-120px); }
@@ -245,7 +245,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px)  translateY(0) translateZ(59px); }
 }
 
-/* 继续添加其他动画关键帧... */
+/* Continue adding other animation keyframes... */
 
 @keyframes cube5Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(59px)  translateZ(0); }
@@ -297,7 +297,7 @@
   100%    { transform: rotateX(-30deg) rotateY(45deg) translateX(-59px)  translateY(59px)  translateZ(59px); }
 }
 
-/* 继续添加中间层的动画... */
+/* Continue adding middle layer animations... */
 
 @media screen and (max-width: 600px) {
   .container {
@@ -305,7 +305,7 @@
   }
 } 
 
-/* 底层动画（20-27） */
+/* Bottom layer animations (20-27) */
 @keyframes cube20Animation {
   0%      { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(-59px)  translateZ(-59px); }
   16.666% { transform: rotateX(-30deg) rotateY(45deg) translateX(0)     translateY(-59px)  translateZ(-120px); }

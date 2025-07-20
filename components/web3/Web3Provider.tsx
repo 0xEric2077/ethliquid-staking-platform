@@ -7,10 +7,20 @@ import { WagmiProvider } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { mainnet } from 'wagmi/chains';
 
+const anvil = {
+  id: 31337,
+  name: 'Anvil',
+  network: 'anvil',
+  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  rpcUrls: { default: { http: ['http://127.0.0.1:8545'] } },
+  blockExplorers: undefined,
+  testnet: true,
+};
+
 const config = getDefaultConfig({
   appName: 'Ethliquid',
-  projectId: 'YOUR_PROJECT_ID', // 替换为你的 WalletConnect 项目ID
-  chains: [mainnet],
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [mainnet, anvil], // Add anvil
   ssr: true,
 });
 const queryClient = new QueryClient();

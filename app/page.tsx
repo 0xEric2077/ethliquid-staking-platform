@@ -48,7 +48,7 @@ export default function Home() {
     }
   ]
 
-  // FAQ 数据
+  // FAQ data
   const faqs = [
     {
       id: 1,
@@ -92,7 +92,7 @@ export default function Home() {
     }
   ];
 
-  // 管理展开状态
+  // Manage expansion state
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
 
   return (
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 h-full pt-40 pb-20">
             <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
               <div className="text-left w-full">
-                {/* 移动端动画 - 只在移动端显示，位于文字上方 */}
+                {/* Mobile animation - only shown on mobile, positioned above text */}
                 <div className="md:hidden w-full flex flex-col items-center mb-12">
                   <div className="w-full max-w-[300px] aspect-square flex items-center justify-center">
                     <NewCubeAnimation />
@@ -134,14 +134,14 @@ export default function Home() {
                       <div className="text-sm md:text-base text-gray-600">Fees</div>
                     </div>
                   </div>
-                  <Link href="/stake" className="w-full md:w-auto bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 text-base font-[500]">
+                  <Link href="/stake" className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-base font-[500] shadow-sm">
                     <Image src="/images/icon_eth.svg" alt="" width={24} height={24} />
                     STAKE
                   </Link>
                 </div>
               </div>
               
-              {/* 桌面端动画 - 只在桌面端显示 */}
+              {/* Desktop animation - only shown on desktop */}
               <div className="hidden md:flex justify-center items-center h-[500px]">
                 <NewCubeAnimation />
               </div>
@@ -153,7 +153,7 @@ export default function Home() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12">
-              {/* 左侧标题 */}
+              {/* Left title */}
               <div>
                 <h2 className="text-[2.4rem] md:text-[3.2rem] font-[600] leading-tight">
                   The Simplest<br />
@@ -162,19 +162,19 @@ export default function Home() {
                 </h2>
               </div>
 
-              {/* 右侧卡片容器 */}
+              {/* Right card container */}
               <div className="flex flex-col gap-8 relative">
-                {/* 竖线 */}
+                {/* Vertical line */}
                 <div className="absolute left-8 top-14 bottom-0 w-[1px] bg-gray-200"></div>
                 
                 {steps.map((step, index) => (
                   <div key={step.number} className="flex gap-4 items-start">
-                    {/* 左侧数字 */}
+                    {/* Left number */}
                     <div className="text-4xl font-medium text-gray-400 w-16 relative z-10 bg-white">
                       {step.number}
                     </div>
                     
-                    {/* 卡片内容 */}
+                    {/* Card content */}
                     <motion.div
                       className={`flex-1 bg-gradient-to-b p-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
                         index === 0 ? 'from-[#F7F9FF] to-[#F7F9FF]' :
@@ -231,12 +231,7 @@ export default function Home() {
               {/* High APY Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_highapy.svg" 
-                    alt="High APY Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <ApyIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">HIGH APY</h3>
@@ -251,12 +246,7 @@ export default function Home() {
               {/* Low Fee Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_fee.svg" 
-                    alt="Low Fee Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <FeeIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">LOW FEE</h3>
@@ -271,12 +261,7 @@ export default function Home() {
               {/* DeFi Ecosystem Card */}
               <div className="flex flex-col p-6 md:p-8 rounded-2xl transition-all duration-300 hover:bg-[#001070] hover:-translate-y-2 cursor-pointer">
                 <div className="mb-8 flex justify-start">
-                  <Image 
-                    src="/images/icon_defi.svg" 
-                    alt="DeFi Ecosystem Icon" 
-                    width={80} 
-                    height={80}
-                  />
+                  <EcosystemIcon className="w-20 h-20" />
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-2xl font-medium">DEFI ECOSYSTEM</h3>
